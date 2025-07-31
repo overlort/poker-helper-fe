@@ -6,7 +6,6 @@ import { Controls } from './components/Controls';
 const App = () => (
   <div className="p-6 max-w-screen-md mx-auto font-sans text-gray-800">
     <h1 className="text-2xl font-bold mb-6">Poker Helper</h1>
-    <button className="bg-red-500 text-white px-4 py-2 rounded">Test Button</button>
     <CardSelector />
     <CardDisplay />
     <Controls />

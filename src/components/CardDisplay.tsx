@@ -9,8 +9,8 @@ export const CardDisplay = observer(() => {
       <h3 className="text-lg font-semibold mb-2">Выбранные карты:</h3>
       <div className="flex gap-2 flex-wrap">
         {cardStore.selectedCards.map(card => {
-          const suit = LETTER_TO_SUIT[card[1]];
-          const rank = card[0];
+          const suit = LETTER_TO_SUIT[card[card.length-1]];
+          const rank = card.slice(0, card.length-1);
           const isRed = suit === '♥' || suit === '♦';
           return (
             <div

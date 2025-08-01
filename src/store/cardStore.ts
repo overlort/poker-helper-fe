@@ -8,10 +8,16 @@ class CardStore {
     makeAutoObservable(this);
   }
 
-  addCard(card: string) {
-    if (this.selectedCards.length < 7 && !this.selectedCards.includes(card)) {
-      this.selectedCards.push(card);
+  toggleCard(card: string) {
+    if (this.selectedCards.includes(card)) {
+      this.removeCard(card);
+    } else if (this.selectedCards.length < 7) {
+      this.addCard(card);
     }
+  }
+
+  addCard(card: string) {
+    this.selectedCards.push(card);
   }
 
   removeCard(card: string) {

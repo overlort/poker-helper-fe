@@ -19,9 +19,16 @@ export const Controls = () => {
   const handleGetBest = async () => {
     try {
       const res = await pokerApi.getBestHand();
-      alert(JSON.stringify(res.data));
+      const { combination, bestCards } = res.data;
+
+      if (!bestCards || bestCards.length === 0) {
+        alert('🧐 Комбинация не определена.');
+        return;
+      }
+      alert(`🃏 Лучшая комбинация: ${combination}`);
     } catch (e: any) {
-      alert('Ошибка при получении комбинации: ' + (e.response?.data?.message || e.message));
+      const msg = e.response?.data?.message || e.message;
+      alert('Ошибка при получении комбинации: ' + msg);
     }
   };
 
